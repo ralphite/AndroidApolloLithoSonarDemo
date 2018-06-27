@@ -59,4 +59,8 @@ dependencies {
 
     // Sonar
 //    implementation 'com.facebook.sonar:sonar:0.0.4'
+
+    // Apollo GraphQL Client
+    implementation 'com.apollographql.apollo:apollo-runtime:0.5.0'
+
 }
