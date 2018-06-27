@@ -16,10 +16,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    packagingOptions {
-        pickFirst 'lib/armeabi-v7a/libfb.so'
-        pickFirst 'lib/x86/libfb.so'
-    }
+//    packagingOptions {
+//        pickFirst 'lib/armeabi-v7a/libfb.so'
+//        pickFirst 'lib/x86/libfb.so'
+//    }
 //    dexOptions {
 //        preDexLibraries = false
 //    }
@@ -58,5 +58,5 @@ dependencies {
     annotationProcessor 'com.facebook.litho:litho-sections-processor:0.15.0'
 
     // Sonar
-    implementation 'com.facebook.sonar:sonar:0.0.4'
+//    implementation 'com.facebook.sonar:sonar:0.0.4'
 }
