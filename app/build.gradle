@@ -16,11 +16,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        pickFirst 'lib/armeabi-v7a/libfb.so'
+        pickFirst 'lib/x86/libfb.so'
+    }
+//    dexOptions {
+//        preDexLibraries = false
+//    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
+    implementation 'com.android.support:design:28.0.0-alpha3'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
@@ -34,7 +42,7 @@ dependencies {
     annotationProcessor 'com.facebook.litho:litho-processor:0.15.0'
 
     // SoLoader
-    implementation 'com.facebook.soloader:soloader:0.3.0'
+    implementation 'com.facebook.soloader:soloader:0.4.1'
 
     // For integration with Fresco
     implementation 'com.facebook.litho:litho-fresco:0.15.0'
@@ -48,4 +56,7 @@ dependencies {
     compileOnly 'com.facebook.litho:litho-sections-annotations:0.15.0'
 
     annotationProcessor 'com.facebook.litho:litho-sections-processor:0.15.0'
+
+    // Sonar
+    implementation 'com.facebook.sonar:sonar:0.0.4'
 }
