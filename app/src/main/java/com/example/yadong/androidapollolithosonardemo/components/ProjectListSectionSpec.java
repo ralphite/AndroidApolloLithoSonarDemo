@@ -22,7 +22,7 @@ public class ProjectListSectionSpec {
     return Children.create()
         .child(
             DataDiffSection.create(sectionContext)
-                .data(new ArrayList<Object>(Arrays.asList("A", "B")))
+                .data(new ArrayList<Object>(Arrays.asList("GraphQL", "Relay")))
                 .renderEventHandler(ProjectListSection.onRender(sectionContext)))
         .build();
   }

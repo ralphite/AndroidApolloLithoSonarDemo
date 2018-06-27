@@ -18,7 +18,8 @@ public class ProjectListItemSpec {
 
     return Column.create(c)
         .paddingDip(ALL, 16)
-        .child(Text.create(c).text(projectName).textSizeSp(40))
+        .child(Text.create(c).text(projectName).textSizeSp(32))
+        .child(Text.create(c).text("Task Count: 20").textSizeSp(20))
         .build();
   }
 }
