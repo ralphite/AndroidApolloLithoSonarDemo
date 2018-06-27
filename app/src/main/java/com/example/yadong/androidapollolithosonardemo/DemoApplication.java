@@ -1,31 +1,29 @@
 package com.example.yadong.androidapollolithosonardemo;
 
-
 import android.app.Application;
 
+import com.apollographql.apollo.ApolloClient;
 import com.facebook.soloader.SoLoader;
-//import com.facebook.sonar.android.AndroidSonarClient;
-//import com.facebook.sonar.android.utils.SonarUtils;
-//import com.facebook.sonar.core.SonarClient;
-//import com.facebook.sonar.plugins.inspector.DescriptorMapping;
-//import com.facebook.sonar.plugins.inspector.InspectorSonarPlugin;
-//import com.facebook.sonar.plugins.network.NetworkSonarPlugin;
+
+import okhttp3.OkHttpClient;
 
 public class DemoApplication extends Application {
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
+  private static final String BASE_URL = "http://127.0.0.1:8000/graphql";
+  private ApolloClient apolloClient;
 
-        SoLoader.init(this, false);
+  @Override
+  public void onCreate() {
+    super.onCreate();
 
-//        if (BuildConfig.DEBUG && SonarUtils.shouldEnableSonar(this)) {
-//            final SonarClient client = AndroidSonarClient.getInstance(this);
-//            client.addPlugin(new NetworkSonarPlugin());
-//
-//            client.addPlugin(new InspectorSonarPlugin(
-//                    getApplicationContext(), DescriptorMapping.withDefaults()));
-//            client.start();
-//        }
-    }
+    SoLoader.init(this, false);
+
+    OkHttpClient okHttpClient = new OkHttpClient.Builder().build();
+
+    apolloClient = ApolloClient.builder().serverUrl(BASE_URL).okHttpClient(okHttpClient).build();
+  }
+
+  public ApolloClient apolloClient() {
+    return apolloClient;
+  }
 }
