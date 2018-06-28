@@ -1,5 +1,7 @@
 package com.example.yadong.androidapollolithosonardemo.components;
 
+import android.graphics.Color;
+
 import com.facebook.litho.annotations.FromEvent;
 import com.facebook.litho.annotations.OnEvent;
 import com.facebook.litho.sections.Children;
@@ -17,20 +19,23 @@ import java.util.Arrays;
 @GroupSectionSpec
 public class ProjectListSectionSpec {
 
-  @OnCreateChildren
-  static Children onCreateChildren(final SectionContext sectionContext) {
-    return Children.create()
-        .child(
-            DataDiffSection.create(sectionContext)
-                .data(new ArrayList<Object>(Arrays.asList("GraphQL", "Relay")))
-                .renderEventHandler(ProjectListSection.onRender(sectionContext)))
-        .build();
-  }
+    @OnCreateChildren
+    static Children onCreateChildren(final SectionContext sectionContext) {
 
-  @OnEvent(RenderEvent.class)
-  static RenderInfo onRender(final SectionContext c, @FromEvent String model) {
-    return ComponentRenderInfo.create()
-        .component(ProjectListItem.create(c).projectName(model).build())
-        .build();
-  }
+        return Children.create()
+            .child(
+                DataDiffSection.create(sectionContext)
+                    .data(new ArrayList<Object>(Arrays.asList("GraphQL", "Relay")))
+                    .renderEventHandler(ProjectListSection.onRender(sectionContext)))
+            .build();
+    }
+
+    @OnEvent(RenderEvent.class)
+    static RenderInfo onRender(final SectionContext c, @FromEvent String model) {
+        return ComponentRenderInfo.create()
+            .component(ProjectListItem.create(c).projectName(model).color(Color.LTGRAY).build())
+            .build();
+    }
+
+
 }

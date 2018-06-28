@@ -66,6 +66,8 @@ dependencies {
 
 
     // Apollo GraphQL Client
+    apply plugin: 'com.apollographql.android'
     implementation 'com.apollographql.apollo:apollo-runtime:0.5.0'
+    implementation "com.apollographql.apollo:apollo-android-support:0.5.0"
 
 }
